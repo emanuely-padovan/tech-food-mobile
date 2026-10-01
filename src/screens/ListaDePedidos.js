@@ -75,7 +75,7 @@ export default function ListaDePedidos() {
             </View>
             <Text style={styles.total}>{moeda(item.total)}</Text>
 
-            {detalhe?.itens.map((i) => (
+            {detalhe?.itens?.map((i) => (
               <Text key={i.id} style={styles.linha}>
                 {i.quantidade}x {i.produto_nome} — {moeda(i.preco_unitario * i.quantidade)}
               </Text>

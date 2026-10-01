@@ -10,6 +10,7 @@ import DetalheProduto from './src/screens/DetalheProduto';
 import Carrinho from './src/screens/Carrinho';
 import ListaDePedidos from './src/screens/ListaDePedidos';
 import CadastroProduto from './src/screens/CadastroProduto';
+import Cardapios from './src/screens/Cardapios';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,7 +26,7 @@ function CardapioStack() {
   );
 }
 
-const icones = { Cardapio: 'restaurant', Carrinho: 'cart', Pedidos: 'receipt', Cadastrar: 'add-circle' };
+const icones = { Cardapio: 'restaurant', Menus: 'book', Carrinho: 'cart', Pedidos: 'receipt', Cadastrar: 'add-circle' };
 
 function Tabs() {
   const { qtdTotal } = useCarrinho();
@@ -37,7 +38,7 @@ function Tabs() {
         tabBarIcon: ({ color, size }) => <Ionicons name={icones[route.name]} size={size} color={color} />,
       })}
     >
-      <Tab.Screen name="Cardapio" component={CardapioStack} options={{ headerShown: false, title: 'Cardápio' }} />
+      <Tab.Screen name="Menus" component={Cardapios} options={{ title: 'Menus do dia' }} />
       <Tab.Screen name="Carrinho" component={Carrinho} options={{ tabBarBadge: qtdTotal || undefined }} />
       <Tab.Screen name="Pedidos" component={ListaDePedidos} options={{ title: 'Meus Pedidos' }} />
       <Tab.Screen name="Cadastrar" component={CadastroProduto} options={{ title: 'Cadastrar Prato' }} />
